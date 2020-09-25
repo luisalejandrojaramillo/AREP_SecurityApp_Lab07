@@ -1,4 +1,4 @@
-package co.edu.eci;
+package co.edu.eci.securityApp;
 
 import spark.Filter;
 import spark.Request;
@@ -42,9 +42,9 @@ public class SecureAppServiceApp {
             }
         });
         /**
-        before("/home", (request, response) -> {
-            response.header("Foo", "Set by second before filter");
-        });*/
+         before("/home", (request, response) -> {
+         response.header("Foo", "Set by second before filter");
+         });*/
 
         get("/home", (req, res) -> homeView(req,res));
 

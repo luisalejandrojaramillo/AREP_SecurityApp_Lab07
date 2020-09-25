@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.edu.eci</groupId>
-    <artifactId>Security App</artifactId>
+    <artifactId>securityApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
