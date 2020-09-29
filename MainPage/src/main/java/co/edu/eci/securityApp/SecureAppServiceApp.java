@@ -4,6 +4,12 @@ import spark.Filter;
 import spark.Request;
 import spark.Response;
 
+import java.io.BufferedReader;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +30,7 @@ public class SecureAppServiceApp {
         get("/hello", (req, res) -> "Hello World");
 
         get("/",(req,res) -> loginView(req,res));
-        //post("/home",(req,res) -> homeView(req,res));
+        get("/results",(req,res) -> results(req,res));
 
         usernamePasswords.put("luis", "luis");
         usernamePasswords.put("admin", "admin");
@@ -87,15 +93,50 @@ public class SecureAppServiceApp {
         String view = "";
         view = "<!DOCTYPE html>"
                 + "<html>"
-                +"<center>"
-                +"<h1>Home View</h1>"
-                +"<br/>"
-                +"<p>Entramos paiiii</p>"
-
-                +"<br/>"
-                +"</center>"
+                + "<body>"
+                + "<center>"
+                + "<h1>Calculadora</h1>"
+                + "<h2>AREP</h2>"
+                + "<h2>Luis Alejandro Jaramillo</h2>"
+                + "<h3>Ingrese los numeros a operar</h3>"
+                + "<form action=\"/results\">"
+                + "  Ingrese los números separados por coma(,):<br>"
+                + "  <input type=\"text\" name=\"num\" placeholder=\"Ej. 1,2.0,3\">"
+                + "  <br>"
+                + "  <br> <br>"
+                + "  <input type=\"submit\" value=\"Enviar\">"
+                + "</form>"
+                + "</center>"
                 + "</body>"
                 + "</html>";
+        System.out.println("Hola");
+        return view;
+    }
+
+    private static String results(Request req, Response res){
+        String view = "";
+
+        try {
+            String params = req.queryParams("num");
+            params = params.replace(",","%2C");
+            System.out.println(params);
+
+
+
+            URL url = new URL("http://localhost:9000/results?num="+params);
+            System.out.println(url);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            System.out.println("Im hear");
+            String inputLine;
+            while ((inputLine = reader.readLine()) != null) {
+                System.out.println(inputLine);
+                view += inputLine;
+            }
+        } catch (MalformedURLException e) {
+                e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return view;
     }
 

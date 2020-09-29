@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  main:
+    build:
+      context: ../MainPage
+      dockerfile: Dockerfile
+    ports:
+      - "35000:6000"
+      
+  calculator:
+    build:
+      context: ../Calculator
+      dockerfile: Dockerfile
+    ports:
+      - "36000:6000"

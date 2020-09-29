@@ -4,9 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>co.edu.eci</groupId>
-    <artifactId>securityApp</artifactId>
+    <groupId>co.edu.eci.calculator</groupId>
+    <artifactId>calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,7 +25,6 @@
             <version>2.7.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -46,6 +50,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
