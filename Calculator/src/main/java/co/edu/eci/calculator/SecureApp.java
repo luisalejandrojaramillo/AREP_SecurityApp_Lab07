@@ -11,10 +11,10 @@ import static spark.Spark.halt;
 
 public class SecureApp {
     public static void main(String[] args) {
+
+
         port(getPort());
-
-        secure("keystores/ecikeystore.p12", "123456", null, null);
-
+        secure("keystores/ecikeystore.p12", "123456", "keystores/myTrustStore", "123456");
         get("/hello", (req, res) -> "Hello World");
         get("/results", (req,res) -> results(req,res));
     }
@@ -42,13 +42,13 @@ public class SecureApp {
                     + "<h3> BubbleSort: " + respuesta + "</h3>"
                     + "<h3> Promedio: " + prom + "</h3>"
                     + "<h3> Suma: " + suma + "</h3>"
-                    + "<p><a href=\"/hello\">Back</a></p>"
+                    + "<p><a href=\"/\">Back</a></p>"
                     + "</center>" + "</body>" + "</html>";
         }else{
             pageContent = "<!DOCTYPE html>" + "<html>" + "<body>"
                     + "<center>"
                     + "<h2>No ha ingresado ningun numero</h2>"
-                    + "<p><a href=\"/hello\">Back</a></p>"
+                    + "<p><a href=\"/\">Back</a></p>"
                     + "</center>" + "</body>" + "</html>";
         }
         return pageContent;
