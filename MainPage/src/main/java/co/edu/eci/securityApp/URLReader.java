@@ -22,7 +22,7 @@ public class URLReader {
         String vista = "";
         try {
             // Create a file and a password representation
-            File trustStoreFile = new File("../Calculator/keystores/myTrustStore");
+            File trustStoreFile = new File("Calculator/keystores/myTrustStore");
             char[] trustStorePassword = "123456".toCharArray();
 
             // Load the trust store, the default type is "pkcs12", the alternative is "jks"
@@ -105,7 +105,9 @@ public class URLReader {
 
             System.out.println("-------message-body------");
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-            System.out.println("Buffer reader mistake");
+
+            //System.out.println("Buffer reader mistake");
+
             String inputLine = null;
             while ((inputLine = reader.readLine()) != null) {
                 vista += inputLine;
