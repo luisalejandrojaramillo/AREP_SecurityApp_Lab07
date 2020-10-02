@@ -1,0 +1,48 @@
+keytool -genkeypair -alias ecikeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore ecikeystore.p12 -validity 3650
+
+
+keytool -export -keystore ./ecikeystore.p12 -alias ecikeypair -file ecicert.cer 
+
+
+keytool -import -file ./ecicert.cer -alias firstCA -keystore myTrustStore
+
+
+pc1: ec2-54-234-55-207.compute-1.amazonaws.com (Old - Calculator)
+
+pc2: ec2-54-175-16-167.compute-1.amazonaws.com (New - Main)
+
+--- 
+
+docker tag dockercompose_main luisalejandroj/securemain
+
+docker push luisalejandroj/securemain:latest
+
+---
+
+docker tag dockercompose_calculator luisalejandroj/securecalculator
+
+docker push luisalejandroj/securecalculator:latest
+
+---
+
+docker tag dockercompose_main luisalejandroj/pc2secure
+
+docker push luisalejandroj/pc2secure:latest
+
+---
+
+docker run -d -p 45000:6000 --name securemain luisalejandroj/securemain
+
+docker run -d -p 46000:6000 --name securecalculator luisalejandroj/securecalculator
+
+---
+
+docker run -d -p 45000:6000 --name pc2secure luisalejandroj/pc2secure
+
+
+https://ec2-54-234-55-207.compute-1.amazonaws.com:45000/
+
+ec2-54-175-16-167.compute-1.amazonaws.com
+
+
+https://ec2-54-175-16-167.compute-1.amazonaws.com:45000/
