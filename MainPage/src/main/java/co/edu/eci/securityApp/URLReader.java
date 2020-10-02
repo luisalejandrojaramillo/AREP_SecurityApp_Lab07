@@ -18,6 +18,12 @@ import javax.net.ssl.TrustManagerFactory;
 
 public class URLReader {
 
+    /**
+     * Se va a retornar una cadena con la vista del otro servicio, pero antes se va a validar el
+     * certificado para poder establecer la coneccion
+     * @param url
+     * @return
+     */
     public static String reader(String url) {
         String vista = "";
         try {
@@ -65,6 +71,11 @@ public class URLReader {
         return vista;
     }
 
+    /**
+     * Vamos a leer la url, retornaremos una string con la vista que estamos leyendo
+     * @param sitetoread
+     * @return
+     */
     public static String readURL(String sitetoread) {
         String vista = "";
         try {

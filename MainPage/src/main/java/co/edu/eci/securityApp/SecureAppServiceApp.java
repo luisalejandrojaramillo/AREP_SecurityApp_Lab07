@@ -25,8 +25,15 @@ import static spark.Spark.*;
 
 public class SecureAppServiceApp {
 
+    /**
+     * Almacenaremos nustros usuarios
+     */
     private static Map<String, String> usernamePasswords = new HashMap<>();
 
+    /**
+     * Metodo principal, aca tendremos nuestros get y post y validaremos el login
+     * @param args
+     */
     public static void main(String[] args) {
         port(getPort());
         // Comando para generar la llave
@@ -67,6 +74,13 @@ public class SecureAppServiceApp {
         });
 
     }
+
+    /**
+     * Vista de login, aca ingresaremos con nuestro user
+     * @param req
+     * @param res
+     * @return
+     */
     private static String  loginView(Request req, Response res){
         String view = "";
 
@@ -97,7 +111,13 @@ public class SecureAppServiceApp {
         return view;
     }
 
-
+    /**
+     * Cuando validemos nuestro user accederemos a esta vista, en la cual
+     * ingresaremos unos numeros
+     * @param req
+     * @param res
+     * @return
+     */
     private static String  homeView(Request req, Response res) {
         String view = "";
         view = "<!DOCTYPE html>"
@@ -122,6 +142,13 @@ public class SecureAppServiceApp {
         return view;
     }
 
+    /**
+     * Con el parametro de los datos ingresados en home, nos vamos a conectar al otro servicio web
+     * el resultado va a quedar en un string el cual se va a mostrar en pantalla
+     * @param req
+     * @param res
+     * @return
+     */
     private static String results(Request req, Response res){
         String view = "";
         try {
@@ -156,6 +183,10 @@ public class SecureAppServiceApp {
     }
 
 
+    /**
+     * returns default port if heroku-port isn't set (i.e. on localhost)
+     * @return
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));

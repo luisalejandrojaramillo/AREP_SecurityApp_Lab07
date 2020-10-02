@@ -19,6 +19,12 @@ public class SecureApp {
         get("/results", (req,res) -> results(req,res));
     }
 
+    /**
+     * Vista con los resultados de la operacion
+     * @param req
+     * @param res
+     * @return
+     */
     private static String results(Request req, Response res){
         String pageContent = "";
         System.out.println("he try");
