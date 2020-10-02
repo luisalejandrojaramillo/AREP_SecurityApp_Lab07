@@ -81,6 +81,15 @@ Certificado en navegador.
 
 ![certweb](/img/3.PNG)
 
+## Paso a paso
+* Pantalla de login
+![p1](/img/a1.PNG)
+* Pantalla home donde ingresaremos los datos
+![p2](/img/a2.PNG)
+*  Luego de la peticion al otro servicios tenemos esta pantalla con los resultados
+![p2](/img/a3.PNG)
+
+
 ## Informe
 
 [Informe Latex](lab07AREP.pdf)
