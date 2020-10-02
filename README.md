@@ -6,6 +6,10 @@ aplicaci´on para que use los certificados creados. Despu´es de resolver ese ce
 las im´agenes de Docker de nuestras dos aplicaciones web, en la imagen incluiremos los certificados.
 Por ´ultimo subiremos la aplicaci´on a AWS
 
+## Enlace Youtube 
+
+[![Video](https://img.youtube.com/vi/Uhmdxozzd44/0.jpg)](https://www.youtube.com/watch?v=Uhmdxozzd44)
+
 ## Requisitos
 * Git
 * Java 8
