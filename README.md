@@ -77,6 +77,9 @@ Certificado en navegador.
 
 ![certweb](/img/3.PNG)
 
+## Informe
+
+[Informe Latex](lab07AREP.pdf)
 
 ## License
 [MIT License ](/LICENSE)
